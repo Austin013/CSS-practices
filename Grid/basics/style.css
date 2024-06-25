@@ -141,9 +141,16 @@ h3 {
 .border-primary-400 {
   border: 2px solid #a775f1;
 }
-
-/* components */
+/* Span the columns (purple/1st/Daniel, black/4th/Patrick)*/
+.grid-col-span-2 {
+  grid-column: span 2;
+}
+/* Basic setup */
 .testimonial-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(4, 1fr);
+
   padding-block: 2rem;
   width: min(95%, 70rem);
   margin-inline: auto;
@@ -154,6 +161,11 @@ h3 {
   padding: 2rem;
   border-radius: 0.5rem;
   box-shadow: 2.5rem 3.75rem 3rem -3rem hsl(var(--clr-secondary-400) / 0.25);
+}
+
+/* moving to specific position -> gird line 4~5 */
+.testimonial:last-child {
+  grid-column: 4;
 }
 
 .testimonial.quote {
