@@ -141,36 +141,57 @@ h3 {
 .border-primary-400 {
   border: 2px solid #a775f1;
 }
-/* ＊Move to responsive design
-Span the columns (purple/1st/Daniel, black/4th/Patrick)
-.grid-col-span-2 {
-  grid-column: span 2;
-}
-*/
+
 /* Basic setup */
 .testimonial-grid {
   display: grid;
   gap: 1.5rem;
-  /* ＊Move to responsive design
-   grid-template-columns: repeat(4, 1fr); 
-   */ 
-
+  grid-auto-columns: 1fr; /* Solve the unevenly distributed columns */
+  /* ＊Method B */
+  grid-template-areas: 
+    'one'
+    'two'
+    'three'
+    'four'
+    'five';
   padding-block: 2rem;
   width: min(95%, 70rem);
   margin-inline: auto;
 }
+/* Define */
+.testimonial:nth-child(1) {
+  grid-area: one;
+}
+.testimonial:nth-child(2) {
+  grid-area: two;
+}
+.testimonial:nth-child(3) {
+  grid-area: three;
+}
+.testimonial:nth-child(4) {
+  grid-area: four;
+}
+.testimonial:nth-child(5) {
+  grid-area: five;
+}
 
-/* Responsive design */
+/* Responsive of Method B */
+
+@media (min-width: 30em) {
+  .testimonial-grid {
+    grid-template-areas: 
+    'one one'
+    'two five'
+    'three five'
+    'four four';
+  }
+}
+
 @media (min-width: 50em) {
   .testimonial-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .testimonial:last-child {
-    grid-column: 4;
-    grid-row: 1 / 3;
-  }
-  .grid-col-span-2 {
-    grid-column: span 2;
+    grid-template-areas: 
+    'one one two five'
+    'three four four five';
   }
 }
 
@@ -180,26 +201,6 @@ Span the columns (purple/1st/Daniel, black/4th/Patrick)
   border-radius: 0.5rem;
   box-shadow: 2.5rem 3.75rem 3rem -3rem hsl(var(--clr-secondary-400) / 0.25);
 }
-
-/* ＊Move to responsive design
- Adjust the last child of the box group (white/5th/Kira)
-.testimonial:last-child {
-  grid-column: 4;
-
-  grid-row-start: 1;
-  grid-row-end: 3; 
-  =
-  grid-row: 1 / 3;
-
-  or 
-
-  grid-row: 1;
-  grid-row-end: span 2;
-  =
-  grid-row: 1 / span 2;
-
-}
- */
 
 .testimonial.quote {
   background-image: url("./images/bg-pattern-quotation.svg");
