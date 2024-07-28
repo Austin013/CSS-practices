@@ -25,4 +25,8 @@ footer { background: #694D75;}
    Demo stuff starts here 
    ========================*/
 
-   
+body {
+    display: grid;
+    grid-template-columns: 
+    1.5em minmax(400px, 650px);
+}
