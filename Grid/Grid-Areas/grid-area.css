@@ -28,16 +28,15 @@ footer { background: #694D75;}
 body {
     display: grid;
     grid-template-columns: 1.5em minmax(400px, 650px) minmax(200px, 350px) 1.5em;
+    grid-template-areas: 
+      'header header header header'
+      '...... main side ..........'
+      'footer footer footer footer';
 }
-header,
-footer {
-  grid-column: 1 / 4;
-}
+header { grid-area: header; }
 
-.main-content {
-  grid-column: 2 / 3;
-}
+.main-content { grid-area: main; }
 
-.sidebar {
-  grid-column: 3 / 4;
-}
+.sidebar { grid-area: side; }
+
+footer { grid-area: footer; }
