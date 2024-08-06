@@ -45,7 +45,7 @@ body {
   }
 }
 
-header { grid-area: header; }
+header { grid-column: header / header; }
 
 .main-content { grid-area: main; }
 
